@@ -27,7 +27,7 @@ You can encode JSON Web Token (JWT) manually...
 ```js
 var JWT = GoogleOAuthJWT.encodeJWT({
   email: '<google_service_account_email_local_part>@developer.gserviceaccount.com',
-  key: '/Users/jagi/application/key.pem', // Path to key file on the server
+  key: Assets.getText('key.pem'), // Get key file from assets
   scopes: [
     'https://www.googleapis.com/auth/plus.profile.emails.read', // New scope name
     'https://www.googleapis.com/auth/userinfo.email' // Old scope name
@@ -42,7 +42,7 @@ var JWT = GoogleOAuthJWT.encodeJWT({
 ```js
 var accessToken = GoogleOAuthJWT.authenticate({
   email: '<google_service_account_email_local_part>@developer.gserviceaccount.com',
-  key: '/Users/jagi/application/key.pem', // Path to key file on the server
+  key: Assets.getText('key.pem'), // Get key file from assets
   scopes: [
     'https://www.googleapis.com/auth/plus.profile.emails.read', // New scope name
     'https://www.googleapis.com/auth/userinfo.email' // Old scope name
@@ -57,7 +57,7 @@ The library provides easy way to make an HTTP calls without thinkig about access
 ```js
 HTTPJWT.setJWTOptions({ // Just call this once to set JWT
   email: '<google_service_account_email_local_part>@developer.gserviceaccount.com',
-  key: '/Users/jagi/application/key.pem', // Path to key file on the server
+  key: Assets.getText('key.pem'), // Get key file from assets
   scopes: [
     'https://www.googleapis.com/auth/plus.profile.emails.read', // New scope name
     'https://www.googleapis.com/auth/userinfo.email' // Old scope name
@@ -70,6 +70,12 @@ var result = HTTPJWT.get(url);
 
 console.log(result.data); // Access your data
 ```
+
+## Key file (*.p12 and *.pem)
+
+You can generate __*.p12__ key file by following this [instruction](https://developers.google.com/storage/docs/authentication#generating-a-private-key). Having __*.p12__ key file, you have to convert it to __*.pem__ format. Instruction how to do it can be found [here](https://developers.google.com/storage/docs/authentication#converting-the-private-key). Notice that password for accessing key is `notasecret`.
+
+Key file (__*.pem__) should be stored inside `private` directory in your Meteor project's main directory. You can access files in this directory by using `Assets.getText()` and `Assets.getBinar()` functions as shown in example codes.
 
 ## License
 
