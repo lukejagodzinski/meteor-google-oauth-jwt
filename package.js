@@ -1,6 +1,6 @@
 Package.describe({
   summary: "Implementation of Google OAuth 2.0 for server-to-server interactions",
-  version: "1.0.1",
+  version: "1.0.2",
   git: "https://github.com/jagi/meteor-google-oauth-jwt.git"
 });
 
