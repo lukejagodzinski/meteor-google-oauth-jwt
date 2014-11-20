@@ -14,7 +14,7 @@ This package also integrates with HTTP package to seamlessly query Google RESTfu
 
 ## Installation
 
-Google OAuth JWT package can be installed using new Meteor package system introduced with Meteor v9.0.0. You type in the command line:
+Google OAuth JWT package can be installed using Meteor package system. Just type in the command line:
 
 ```sh
 $ meteor add jagi:google-oauth-jwt
