@@ -71,6 +71,21 @@ var result = HTTPJWT.get(url);
 console.log(result.data); // Access your data
 ```
 
+You can also call HTTPJWT methods in asynchronous way.
+
+```js
+var url = 'https://<application_name>.appspot.com/_ah/api/<application_name>/<version>/<rest_api>';
+var result = HTTPJWT.get(url, options, function (err, res) {
+  // Do something after response
+});
+
+// Or just
+
+var result = HTTPJWT.get(url, function (err, res) {
+  // Do something after response
+});
+```
+
 ## Key file (*.p12 and *.pem)
 
 You can generate __*.p12__ key file by following this [instruction](https://developers.google.com/storage/docs/authentication#generating-a-private-key). Having __*.p12__ key file, you have to convert it to __*.pem__ format. Instruction how to do it can be found [here](https://developers.google.com/storage/docs/authentication#converting-the-private-key). Notice that password for accessing key is `notasecret`.
