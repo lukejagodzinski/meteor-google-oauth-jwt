@@ -1,6 +1,6 @@
 Package.describe({
   summary: 'Implementation of Google OAuth 2.0 for server-to-server interactions',
-  version: '1.0.4',
+  version: '1.0.5',
   name: 'jagi:google-oauth-jwt',
   git: 'https://github.com/jagi/meteor-google-oauth-jwt.git'
 });
@@ -8,9 +8,16 @@ Package.describe({
 Package.onUse(function(api) {
   api.versionsFrom('METEOR@1.0');
 
-  api.use(['underscore', 'http']);
+  api.use([
+    'underscore',
+    'http'
+  ], 'server');
 
-  api.addFiles(['lib/google-oauth-jwt.js', 'lib/http-jwt.js'], 'server');
+  api.addFiles([
+    'lib/google-oauth-jwt.js',
+    'lib/tokens.js',
+    'lib/http-jwt.js'
+  ], 'server');
 
   api.export(['GoogleOAuthJWT', 'HTTPJWT'], 'server');
 });
