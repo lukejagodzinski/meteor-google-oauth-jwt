@@ -52,7 +52,7 @@ var accessToken = GoogleOAuthJWT.authenticate({
 
 ## Making HTTP request
 
-The library provides easy way to make an HTTP calls without thinkig about access tokens and JWTs. It also supports caching so it limits number of calls to the Google servers and makes things faster.
+The library provides easy way to make an HTTP calls without thinkig about access tokens and JWTs. It also supports caching so it limits number of calls to the Google servers and makes things faster. For sub (optional) pass in the email address of the user for which the application is requesting delegated access.
 
 ```js
 HTTPJWT.setJWTOptions({ // Just call this once to set JWT
@@ -61,7 +61,8 @@ HTTPJWT.setJWTOptions({ // Just call this once to set JWT
   scopes: [
     'https://www.googleapis.com/auth/plus.profile.emails.read', // New scope name
     'https://www.googleapis.com/auth/userinfo.email' // Old scope name
-  ]
+  ],
+  sub: 'user@example.com'
 });
 
 // Accessing endpoints REST api
